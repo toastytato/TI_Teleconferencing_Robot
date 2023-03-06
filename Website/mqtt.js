@@ -47,7 +47,18 @@ function checkKey(e) {
       client.send("control","stop");
       text.innerHTML = "stopped";
     }
-
+    else if (e.keyCode == '49') {
+      client.send("control","slow");
+      text.innerHTML = "slow speed";
+    }
+    else if (e.keyCode == '50') {
+      client.send("control","medium");
+      text.innerHTML = "stopped";
+    }
+    else if (e.keyCode == '51') {
+      client.send("control","fast");
+      text.innerHTML = "stopped";
+    }
 
 }
 
