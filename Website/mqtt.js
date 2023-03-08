@@ -25,7 +25,11 @@ client.connect({
 });
 
 
-document.onkeydown = checkKey;
+//document.onkeydown = checkKey;
+
+while(true){
+  checkKey;
+}
 
 function checkKey(e) {
   var text = document.getElementById("display")
