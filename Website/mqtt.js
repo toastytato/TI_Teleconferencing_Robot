@@ -59,7 +59,10 @@ function checkKey(e) {
       client.send("control","fast");
       text.innerHTML = "stopped";
     }
-
+    else{
+      client.send("control","stop");
+      text.innerHTML = "stopped");
+    }
 }
 
 
