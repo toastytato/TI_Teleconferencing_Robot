@@ -26,7 +26,7 @@ client.connect({
 
 
 document.onkeydown = checkKey;
-
+document.onkeyup = checkKeyup;
 function checkKey(e) {
   var text = document.getElementById("display")
     e = e || window.event;
@@ -34,6 +34,10 @@ function checkKey(e) {
     if (e.keyCode == '38') {
       client.send("control","forward");
       text.innerHTML = "move forward";
+    }
+    else if (e.keyCode == '40') {
+      client.send("control","backwards");
+      text.innerHTML = "backwards";
     }
     else if (e.keyCode == '37') {
       client.send("control","left");
@@ -43,23 +47,22 @@ function checkKey(e) {
       client.send("control","right");
       text.innerHTML = "turn right";
     }
-    else if (e.keyCode == '32') {
-      client.send("control","stop");
-      text.innerHTML = "stopped";
+    else if (e.keyCode == '87') {
+      client.send("control","up");
+      text.innerHTML = "actuator up";
     }
-    else if (e.keyCode == '49') {
-      client.send("control","slow");
-      text.innerHTML = "slow speed";
-    }
-    else if (e.keyCode == '50') {
-      client.send("control","medium");
-      text.innerHTML = "stopped";
-    }
-    else if (e.keyCode == '51') {
-      client.send("control","fast");
-      text.innerHTML = "stopped";
+    else if (e.keyCode == '83') {
+      client.send("control","down");
+      text.innerHTML = "actuator down";
     }
 
 }
 
 
+function checkKeyup(e) {
+  var text = document.getElementById("display")
+    e = e || window.event;
+    client.send("control","stop");
+    text.innerHTML = "stop";
+    
+}
