@@ -24,9 +24,7 @@ client.connect({
   useSSL:true
 });
 
-
-document.onkeydown = checkKey;
-document.onkeyup = checkKeyup;
+document.onkeydown = checkKey; 
 function checkKey(e) {
   var text = document.getElementById("display")
     e = e || window.event;
@@ -56,6 +54,11 @@ function checkKey(e) {
       text.innerHTML = "actuator down";
     }
 
+    else{
+      client.send("control","stop");
+      text.innerHTML = "stopped");
+    }
+  
 }
 
 
