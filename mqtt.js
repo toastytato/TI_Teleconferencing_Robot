@@ -37,7 +37,6 @@ function checkKey(e) {
     if (e.keyCode == '38') {
       text.innerHTML = "move forward";
       client.send("control","forward");
-      text.innerHTML = "works";
     }
     else if (e.keyCode == '40') {
       text.innerHTML = "backwards";
@@ -73,7 +72,7 @@ function checkKey(e) {
 function checkKeyup(e) {
   var text = document.getElementById("display")
     e = e || window.event;
-    //client.send("control","stop");
+    client.send("control","stop");
     text.innerHTML = "stop";
     
 }
