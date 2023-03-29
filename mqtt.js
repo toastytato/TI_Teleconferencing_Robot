@@ -15,14 +15,21 @@ function onConnect(){
 
 }
 
-// // Connect the client, providing an onConnect callback
-client.connect({
+try {
+  client.connect({
   
-	onSuccess: onConnect,
-  userName: 'karen',
-  password: "seniordesignteami13",
-  useSSL:true
-});
+    onSuccess: onConnect,
+    userName: 'karen',
+    password: "seniordesignteami13",
+    useSSL:true
+  });
+  
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+
+// // Connect the client, providing an onConnect callback
 
 document.onkeydown = checkKey; 
 document.onkeyup = checkKeyup;
