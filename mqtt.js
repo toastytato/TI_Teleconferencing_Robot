@@ -10,7 +10,7 @@ var text = document.getElementById("display")
 
 // // Called when the connection is made
 function onConnect(){
-	text.innerHTML = "test";
+  text.innerHTML = "test";
   //client.subscribe("#");
 
 }
@@ -40,7 +40,7 @@ function checkKey(e) {
     if (e.keyCode == '38') {
       text.innerHTML = "move forward";
       client.send("control","forward");
-      
+      text.innerHTML = "works";
     }
     else if (e.keyCode == '40') {
       text.innerHTML = "backwards";
