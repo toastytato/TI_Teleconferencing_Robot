@@ -41,29 +41,29 @@ function checkKey(e) {
     }
     else if (e.keyCode == '40') {
       text.innerHTML = "backwards";
-     // client.send("control","backwards");
+      client.send("control","backwards");
       
     }
     else if (e.keyCode == '37') {
       text.innerHTML = "turn left";
-     // client.send("control","left");
+      client.send("control","left");
       
     }
     else if (e.keyCode == '39') {
-      //client.send("control","right");
+      client.send("control","right");
       text.innerHTML = "turn right";
     }
     else if (e.keyCode == '87') {
-      //client.send("control","up");
+      client.send("control","up");
       text.innerHTML = "actuator up";
     }
     else if (e.keyCode == '83') {
-      //client.send("control","down");
+      client.send("control","down");
       text.innerHTML = "actuator down";
     }
 
     else{
-      //client.send("control","stop");
+      client.send("control","stop");
       text.innerHTML = "stopped";
     }
   
