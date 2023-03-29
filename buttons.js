@@ -6,7 +6,3 @@ slider.oninput = function() {
     client.send("buttons",this.value);
   }
 
-var text = document.getElementById("demo2")
-function myFunction(){
-  text.innerHTML = "test";
-}

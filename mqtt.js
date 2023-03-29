@@ -1,7 +1,7 @@
 
 var clientId = Math.floor(Math.random() * 10000).toString();
 client = new Paho.MQTT.Client("f88526ba972442818f936ee5c29a35e8.s2.eu.hivemq.cloud", 8884,clientId);
-var text = document.getElementById("display")
+
 
 // //set callback handlers
 // client.onConnectionLost = function (responseObject) {
@@ -31,7 +31,7 @@ function onConnect(){
 document.onkeydown = checkKey; 
 document.onkeyup = checkKeyup;
 function checkKey(e) {
-  
+  var text = document.getElementById("display")
     e = e || window.event;
 
     if (e.keyCode == '38') {
