@@ -1,3 +1,4 @@
+
 var clientId = Math.floor(Math.random() * 10000).toString();
 client = new Paho.MQTT.Client("f88526ba972442818f936ee5c29a35e8.s2.eu.hivemq.cloud", 8884,clientId);
 var text = document.getElementById("display")
@@ -10,12 +11,12 @@ var text = document.getElementById("display")
 
 // // Called when the connection is made
 function onConnect(){
-  text.innerHTML = "Connected";
+  console.log("Connected");
   //client.subscribe("#");
 
 }
 
-try {
+
   client.connect({
   
     onSuccess: onConnect,
@@ -23,11 +24,7 @@ try {
     password: "seniordesignteami13",
     useSSL:true
   });
-  
-}
-catch(err) {
-  document.getElementById("demo").innerHTML = err.message;
-}
+
 
 // // Connect the client, providing an onConnect callback
 
