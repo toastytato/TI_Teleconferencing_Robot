@@ -56,7 +56,7 @@ function checkKey(e) {
 
     else{
       client.send("control","stop");
-      text.innerHTML = "stopped");
+      text.innerHTML = "stopped";
     }
   
 }
