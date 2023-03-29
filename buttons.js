@@ -5,3 +5,8 @@ slider.oninput = function() {
     output.innerHTML = this.value;
     client.send("buttons",this.value);
   }
+
+var text = document.getElementById("demo2")
+function myFunction(){
+  text.innerHTML = "test";
+}
