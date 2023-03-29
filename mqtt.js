@@ -31,16 +31,19 @@ function checkKey(e) {
     e = e || window.event;
 
     if (e.keyCode == '38') {
-      client.send("control","forward");
       text.innerHTML = "move forward";
+      client.send("control","forward");
+      
     }
     else if (e.keyCode == '40') {
-      client.send("control","backwards");
       text.innerHTML = "backwards";
+      client.send("control","backwards");
+      
     }
     else if (e.keyCode == '37') {
-      client.send("control","left");
       text.innerHTML = "turn left";
+      client.send("control","left");
+      
     }
     else if (e.keyCode == '39') {
       client.send("control","right");
