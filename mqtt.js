@@ -10,7 +10,7 @@ var text = document.getElementById("display")
 
 // // Called when the connection is made
 function onConnect(){
-  text.innerHTML = "test";
+  text.innerHTML = "Connected";
   //client.subscribe("#");
 
 }
