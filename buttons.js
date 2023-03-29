@@ -6,3 +6,4 @@ slider.oninput = function() {
     client.send("buttons",this.value);
   }
 
+//does this work?
