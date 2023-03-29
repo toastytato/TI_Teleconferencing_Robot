@@ -1,5 +1,5 @@
-// var clientId = Math.floor(Math.random() * 10000).toString();
-// client = new Paho.MQTT.Client("f88526ba972442818f936ee5c29a35e8.s2.eu.hivemq.cloud", 8884,clientId);
+var clientId = Math.floor(Math.random() * 10000).toString();
+client = new Paho.MQTT.Client("f88526ba972442818f936ee5c29a35e8.s2.eu.hivemq.cloud", 8884,clientId);
 
 
 // //set callback handlers
@@ -9,20 +9,20 @@
 
 
 // // Called when the connection is made
-// function onConnect(){
-// 	console.log("Connected");
-//   //client.subscribe("#");
+function onConnect(){
+	console.log("Connected");
+  //client.subscribe("#");
 
-// }
+}
 
 // // Connect the client, providing an onConnect callback
-// client.connect({
+client.connect({
   
-// 	onSuccess: onConnect,
-//   userName: 'karen',
-//   password: "seniordesignteami13",
-//   useSSL:true
-// });
+	onSuccess: onConnect,
+  userName: 'karen',
+  password: "seniordesignteami13",
+  useSSL:false
+});
 
 document.onkeydown = checkKey; 
 document.onkeyup = checkKeyup;
@@ -32,7 +32,7 @@ function checkKey(e) {
 
     if (e.keyCode == '38') {
       text.innerHTML = "move forward";
-      //client.send("control","forward");
+      client.send("control","forward");
       
     }
     else if (e.keyCode == '40') {
