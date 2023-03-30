@@ -32,9 +32,12 @@ document.onkeydown = checkKey;
 document.onkeyup = checkKeyup;
 function checkKey(e) {
   var text = document.getElementById("display")
+  
     e = e || window.event;
-
+    var key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    key.style.backgroundColor = 'red';
     if (e.keyCode == '38') {
+      
       text.innerHTML = "move forward";
       client.send("control","forward");
     }
@@ -72,6 +75,8 @@ function checkKey(e) {
 function checkKeyup(e) {
   var text = document.getElementById("display")
     e = e || window.event;
+    var key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    key.style.backgroundColor = '#353943';
     client.send("control","stop");
     text.innerHTML = "stop";
     
