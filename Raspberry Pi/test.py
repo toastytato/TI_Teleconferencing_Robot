@@ -12,7 +12,6 @@ from paho import mqtt
 in1 = 24
 in2 = 23
 en = 25
-temp1=1
 
 in3 =5
 in4 =6
@@ -35,8 +34,8 @@ GPIO.output(in4,GPIO.LOW)
 
 p=GPIO.PWM(en,100)
 p2=GPIO.PWM(en2,100)
-p.start(50)
-p2.start(50)
+p.start(35)
+p2.start(35)
 
 
 #Change according to specific ATS
@@ -53,6 +52,7 @@ def on_connect(client, userdata, flags, rc, properties=None):
 # with this callback you can see if your publish was successful
 #
 
+temp_speed = 15
 # print message, useful for checking if it was successful
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
@@ -62,38 +62,42 @@ def on_message(client, userdata, msg):
         GPIO.output(in2,GPIO.LOW)
         GPIO.output(in3,GPIO.HIGH)
         GPIO.output(in4,GPIO.LOW)
-    
+
+    elif(message == "backwards"):
+        GPIO.output(in1,GPIO.LOW)
+        GPIO.output(in2,GPIO.HIGH)
+        GPIO.output(in3,GPIO.LOW)
+        GPIO.output(in4,GPIO.HIGH)
+
     elif(message == "right"):
+        p.ChangeDutyCycle(15)
+        p2.ChangeDutyCycle(15)
         GPIO.output(in1,GPIO.HIGH)
         GPIO.output(in2,GPIO.LOW)
         GPIO.output(in3,GPIO.LOW)
         GPIO.output(in4,GPIO.HIGH)
     
     elif(message =="left"):
+        p.ChangeDutyCycle(15)
+        p2.ChangeDutyCycle(15)
         GPIO.output(in1,GPIO.LOW)
         GPIO.output(in2,GPIO.HIGH)
         GPIO.output(in3,GPIO.HIGH)
         GPIO.output(in4,GPIO.LOW)
     
-    
     elif(message == "stop"):
+        p.ChangeDutyCycle(temp_speed)
+        p2.ChangeDutyCycle(temp_speed)
         GPIO.output(in1,GPIO.LOW)
         GPIO.output(in2,GPIO.LOW)
         print("hi")
         GPIO.output(in3,GPIO.LOW)
         GPIO.output(in4,GPIO.LOW)
         
-    elif(message == "slow"):
-        p.ChangeDutyCycle(25)
-        p2.ChangeDutyCycle(25)
-        
-    elif(message == "medium"):
-        p.ChangeDutyCycle(50)
-        p2.ChangeDutyCycle(50)
-        
-    elif(message == "fast"):
-        p.ChangeDutyCycle(75)
-        p2.ChangeDutyCycle(75)
+    elif(msg.topic == "buttons"):
+        temp_speed = int(message)
+        p.ChangeDutyCycle(int(message))
+        p2.ChangeDutyCycle(int(message))
         
         
     
@@ -110,11 +114,10 @@ client.username_pw_set(HIVEMQ_username, HIVEMQ_password)
 
 # connect to HiveMQ Cloud on port 8883 (default for MQTT)
 client.connect(HIVEMQ_broker_URL, HIVEMQ_broker_port)
-client.subscribe('control')
+client.subscribe('#')
 # setting callbacks, use separate functions like above for better visibility
 
 client.on_message = on_message
-
 
 
 client.loop_forever()
