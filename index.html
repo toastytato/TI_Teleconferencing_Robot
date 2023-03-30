@@ -11,10 +11,11 @@
 
    <div class="message-container">
       <h2>Controls</h2>
+      <p> Vary Speed</p>
       <div class="slidecontainer">
          <input type="range" min="1" max="5" value="3" step = "1"class="slider" id="myRange">
        </div>
-       <div id="display"></div>
+       
        <div id="demo"></div>
    </div>
    
@@ -48,21 +49,39 @@
           <!-- Character -->
           <p>&rarr;</p>
         </div>
-        
       </div>
+      <div class="text">
+         <p> Movement</p>
+       </div>
    </div>
       <div class ="right-row">
-         <div data-key="87" class="key">
-            <!-- Character -->
-            <p>W</p>
-          </div>
-          <div data-key="83" class="key">
-            <!-- Character -->
-            <p>S</p>
+         <div class = "top-row" >
+            <div data-key="87" class="key">
+               <!-- Character -->
+               <p>W</p>
+             </div>
+         </div>
+         <div class="bottom-row">
+            <div class="ghostkey">
+               <!-- Character -->
+               <p></p>
+             </div>
+            <div data-key="83" class="key">
+               <!-- Character -->
+               <p>S</p>
+             </div>
+             
+         </div>
+         <div class="text">
+            <p> Linear Actuator Height</p>
           </div>
       </div>
    
-</div>     
+</div>    
+   <div class="text">Output:
+      <div id="display"></div> 
+   </div>
+   
       
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js" type="text/javascript"></script>

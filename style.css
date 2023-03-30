@@ -13,23 +13,24 @@ body {
 }
 
 .container{
+    padding-top: 5em 5em;
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
+    align-items: center;
+    justify-content: center;
     
 }
 /* Keyboard style */
 .keyboard {
-  padding: 2.5em 0;
+  padding: 5em 0;
   width: 400px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 /* Top row for keyboard */
 .top-row {
   width: 140px;
   /* Off Centered */
   /* width: 190px; */
-  margin: 0 auto;
+  margin: auto;
   
 }
 /* Bottom row for keyboard */
@@ -37,17 +38,20 @@ body {
   display: inline-flex;
 }
 .right-row{
-  padding: 2.5em 0;
+  padding: 0 0;
   width: 400px;
   
 }
-
+.text{
+    text-align: center;
+    align-items: center;
+}
 
 /* Style for each Key */
 .key {
   background-color: #353943;
   border: 1px solid #834426;
-  box-shadow: 5px 5px #c2b7ab;
+  border-radius: 10px;
   color: #ffffff;
   width: 100px;
   margin: 15px;
@@ -55,6 +59,16 @@ body {
   top: 0;
   left: 0;
   transition: all 0.07s ease;
+}
+
+.ghostkey{
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 100px;
+    margin: 15px;
+    text-align: center;
+    top: 0;
+    left: 0;
 }
 /* Active Class for Key */
 .activeKey {
