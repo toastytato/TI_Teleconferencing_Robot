@@ -1,7 +1,7 @@
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 
-list = [(15),(25),(35),(45),(55)];
+list = [(10),(15),(20),(25),(45)];
 
 output.innerHTML = "Speed: " + slider.value; // Display the default slider value
 slider.oninput = function() {
